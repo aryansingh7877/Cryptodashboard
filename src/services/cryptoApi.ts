@@ -25,7 +25,12 @@ export interface Coin {
 }
 
 const api = axios.create({
-  baseURL: "/api/coingecko",
+  // Vite proxy works only in local dev. In production deploys (Vercel/Netlify),
+  // hit CoinGecko directly to avoid 404s on /api/coingecko.
+  baseURL:
+    import.meta.env.DEV && !import.meta.env.SSR
+      ? "/api/coingecko"
+      : "https://api.coingecko.com/api/v3",
   timeout: 15000,
 });
 
