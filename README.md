@@ -77,6 +77,20 @@ npm run cf:deploy
 
 After deploy, Wrangler prints your live Worker URL.
 
+## Deploy on Vercel
+
+This project now supports Vercel using Nitro for TanStack Start SSR.
+
+1) Import the GitHub repository in Vercel  
+2) Keep default install/build commands (`npm install`, `npm run build`)  
+3) Deploy (no UI changes required)
+
+If Vercel asks for a start command in manual environments, use:
+
+```bash
+npm run start
+```
+
 ### Lint and format
 
 ```bash
