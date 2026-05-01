@@ -53,6 +53,30 @@ npm run build
 npm run preview
 ```
 
+## Deploy on Cloudflare Workers
+
+This project is already configured for Cloudflare Workers via `wrangler.jsonc`.
+
+### 1) Login once
+
+```bash
+npx wrangler login
+```
+
+### 2) (Optional) Run Worker locally
+
+```bash
+npm run cf:dev
+```
+
+### 3) Deploy to production
+
+```bash
+npm run cf:deploy
+```
+
+After deploy, Wrangler prints your live Worker URL.
+
 ### Lint and format
 
 ```bash
@@ -76,6 +100,7 @@ src/
 - The dashboard is optimized for smooth interactions even when data updates frequently.
 - Initial page entry now uses a reusable GSAP loading screen to avoid abrupt first paint.
 - The project currently uses npm lockfile by default, while Bun config files also exist.
+- Vite proxy routes are used only in local dev; production requests are configured to avoid `/api` proxy 404s.
 
 ## License
 
